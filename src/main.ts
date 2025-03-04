@@ -196,7 +196,7 @@ function displayStudentWithAverage(student: StudentWithSubjects): void
         const formattedGrades = subject.grades.map(grade => grade === undefined ? "*" : grade);
         console.log(`${subject.name}: ${formattedGrades.join(",")} (Avg: ${average?.toFixed(2) ?? "*"})`)
         overallGrades = overallGrades.concat(subject.grades)
-    });
+    })
 
     const overallAverage = calculateAverage(overallGrades)
     console.log("\n")
@@ -221,7 +221,6 @@ displayStudentWithAverage(studentD)
 function calculateAverageForAllStudents(students: StudentWithSubjects[]): number | null {
     let allGrades: Grade[] = []
 
-    // Collect grades from all students
     students.forEach(student =>
     {
         student.subjects.forEach(subject =>
@@ -233,7 +232,6 @@ function calculateAverageForAllStudents(students: StudentWithSubjects[]): number
     return calculateAverage(allGrades);
 }
 
-// Example with a list of students
 const students: StudentWithSubjects[] =
 [
     {
@@ -247,9 +245,9 @@ const students: StudentWithSubjects[] =
         ],
     },
     studentD, // "Cäsar Schmidt"
-];
+]
 
-const overallAvg = calculateAverageForAllStudents(students);
-console.log(`Overall Average for All Students: ${overallAvg?.toFixed(2) ?? "*"}`);
+const overallAvg = calculateAverageForAllStudents(students)
+console.log(`Overall Average for All Students: ${overallAvg?.toFixed(2) ?? "*"}`)
 
 // </editor-fold>
