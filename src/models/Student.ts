@@ -7,3 +7,16 @@ export type Student =
     grades: Grade[]
 }
 
+export type Subject =
+{
+    name: string;
+    grades: Grade[]
+};
+
+export type StudentWithSubjects =
+{
+    firstName: string
+    lastName: string
+    age: number
+    subjects: Subject[]
+};
