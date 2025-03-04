@@ -1,13 +1,14 @@
 ﻿export interface Character
 {
-    id: number;
-    name: string;
-    status: "Alive" | "Dead" | "unknown"; // Allowed status values
-    species: string;
+    id: number
+    name: string
+    status: "Alive" | "Dead" | "unknown"
+    species: string
     origin: {
-        name: string;
-    };
+        name: string
+    }
 }
+
 export const characters : Character[] =
 [
     {
