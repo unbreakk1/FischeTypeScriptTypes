@@ -1,4 +1,5 @@
 import {Grade, Student, StudentWithSubjects} from "./models/Student.ts"
+import {Character, characters} from "./models/MockAPIResponse.ts"
 // Step 1:
 function displayStudentOne(student: Student): void
 {
@@ -41,8 +42,8 @@ function displayStudentStepThree(student: Student): void
     console.log(`${student.firstName} ${student.lastName} (${student.age})`)
     console.log("=".repeat(30))
     const formattedGrades = student.grades.map((grade) =>
-        grade === undefined ? "*" : grade
-    )
+        grade === undefined ? "*" : grade)
+
     console.log(`Grades: ${formattedGrades.join(",")}`)
 }
 
@@ -249,5 +250,34 @@ const students: StudentWithSubjects[] =
 
 const overallAvg = calculateAverageForAllStudents(students)
 console.log(`Overall Average for All Students: ${overallAvg?.toFixed(2) ?? "*"}`)
+
+// </editor-fold>
+
+// <editor-fold>desc="Rick&Morty BONUS"
+
+// 1. get only living humans
+function getLivingHumans(characters: Character[]): Character[] {
+    return characters.filter(
+        (character) => character.status === "Alive" && character.species === "Human")
+}
+
+// 2. Character names
+function getCharacterNames(characters: Character[]): string[]
+{
+    return characters.map((character) => character.name)
+}
+
+// 3. Special Objects
+function getSpecialObjects(characters: Character[]): { name: string; origin: string }[]
+{
+    return characters.map((character) => ({
+        name: character.name,
+        origin: character.origin.name,
+    }))
+}
+
+console.log("Living Humans:", getLivingHumans(characters))
+console.log("Character Names:", getCharacterNames(characters))
+console.log("Special Objects:", getSpecialObjects(characters))
 
 // </editor-fold>
